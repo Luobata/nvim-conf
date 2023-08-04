@@ -82,7 +82,12 @@ return require('packer').startup(function(use)
   use {'dracula/vim', as = 'dracula'}
 
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-  use 'williamboman/nvim-lsp-installer'
+  --use 'williamboman/nvim-lsp-installer'
+
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
+
+  require("mason").setup()
 
   use 'neovide/neovide'
 
