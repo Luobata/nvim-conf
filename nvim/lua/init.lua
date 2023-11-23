@@ -1,14 +1,9 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
+MACOSX_DEPLOYMENT_TARGET="13.5.2"
 vim.cmd [[packadd packer.nvim]]
 
-require("plugins/lsp");
-require("plugins/neovide");
-require("plugins/cmp");
-require("plugins/buffer-line");
-require("plugins/lua-line");
---require("plugins/null-ls");
 
 
 return require('packer').startup(function(use)
@@ -63,9 +58,11 @@ return require('packer').startup(function(use)
   -- Post-install/update hook with call of vimscript function with argument
   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
 
+  use 'nvim-tree/nvim-web-devicons'
+  require'nvim-web-devicons'.get_icons()
   -- Use specific branch, dependency and run lua file after load
   use {
-    'glepnir/galaxyline.nvim', branch = 'main', config = function() require'statusline' end,
+    'glepnir/galaxyline.nvim', branch = 'main', config = function() require'plugins/statusline' end,
     requires = {'kyazdani42/nvim-web-devicons'}
   }
 
@@ -119,5 +116,11 @@ return require('packer').startup(function(use)
 
   --use('MunifTanjim/prettier.nvim')
 
+require("plugins/lsp");
+require("plugins/neovide");
+require("plugins/cmp");
+require("plugins/buffer-line");
+require("plugins/lua-line");
+--require("plugins/null-ls");
 
 end)
