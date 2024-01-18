@@ -112,6 +112,12 @@ return require('packer').startup(function(use)
   requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.5',
+      -- or                            , branch = '0.1.x',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   --use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
 
   --use('MunifTanjim/prettier.nvim')
@@ -121,6 +127,7 @@ require("plugins/neovide");
 require("plugins/cmp");
 require("plugins/buffer-line");
 require("plugins/lua-line");
+require("plugins/telescope");
 --require("plugins/null-ls");
 
 end)
